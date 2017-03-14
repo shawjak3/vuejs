@@ -11,14 +11,10 @@
   </head>
   <body>
     <div id="app">
-      <h1 v-text="message"></h1>
-      <h2 v-html="intro"></h2>
-      <h2 v-show="viewed">You have viewed this page</h2>
-      <h2 v-if="viewed == viewed2">You have viewed this page</h2>
-      <h2 v-else>You have NOT viewed this page</h2>
-      <h2 v-pre>{{ message }}</h2>
-      <h2 v-once>{{ message }}</h2>
-      <h2 v-cloak>{{ message }}</h2>
+      <h1 v-bind:title="title">{{message}}</h1>
+      <img v-bind:src="url" v-bind:alt="title" v-bind:title="title" />
+      //shorthand bind :
+      <img :src="url" :alt="title" :title="title" />
     </div>
   </body>
   <script src="https://unpkg.com/vue@2.2.3"></script>
@@ -27,9 +23,8 @@
       el: '#app',
       data: {
         message: 'Hello Vue World',
-        intro: "Welcome to the tutorial <small>It is all about vue.js</small>",
-        viewed: true,
-        viewed2: true,
+        title: 'You loaded the page on ' + new Date(),
+        url: "http://vuejs.org/images/logo.png",
       }
     })
   </script>
